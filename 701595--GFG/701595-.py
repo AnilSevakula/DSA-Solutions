@@ -5,7 +5,8 @@ class Solution:
         
         
         reverse = ""
-        for i in range(len(s) - 1, -1, -1):
+        l = len(s)
+        for i in range(l - 1, -1, -1):
             reverse = reverse + s[i]
         return reverse
 
