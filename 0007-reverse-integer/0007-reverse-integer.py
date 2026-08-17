@@ -1,17 +1,18 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        is_negative = x < 0
-        if is_negative:
+        is_neg = x < 0
+        x = str(x)
+        if is_neg:
+            x = x[len(x)-1:0:-1]
+            x = int(x)
             x = -x
-        num = 0
-        while x > 0:
-            rem = x % 10
-            num = num *10 + rem
-            x //= 10
-        num = - num if is_negative else num
-        if num >=  2**31 - 1 or num <= -2**31:
+
+        else:
+            x = x[::-1]
+            x = int(x)
+        if x < -2**31 or x > 2**31 -1:
             return 0
-        return num
+        return x
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
