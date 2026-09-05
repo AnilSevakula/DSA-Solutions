@@ -1,9 +1,6 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         d = {}
-        for i in range(97, 97+26):
-            d[chr(i)] = 0
-
         for ch in s:
             d[ch] = d.get(ch, 0) + 1
 
@@ -11,7 +8,7 @@ class Solution:
             d[ch] = d.get(ch, 0) - 1
 
         for ch in d:
-            if d[ch] != 0:
+            if d.get(ch, -1) != 0:
                 return False
         else:
             return True
